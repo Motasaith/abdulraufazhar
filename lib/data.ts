@@ -11,6 +11,7 @@ export type Project = {
 export const projects: Project[] = [
   { name: "PTA Game", href: "https://ptagames.dpdns.org/", img: "/img/pta-game.webp", w: 1000, h: 471, cap: "A GTA-style open world set in a Pakistani city, generated in your browser.", tags: ["three.js", "Procedural city", "Cloudflare"] },
   { name: "Narrashot", href: "https://narrashot.dpdns.org/", img: "/img/narrashot.webp", w: 1000, h: 532, cap: "Screenshots in, narrated tutorial video out. No screen recorder, no retakes.", tags: ["Next.js", "FastAPI", "FFmpeg"] },
+  { name: "PromptCut", href: "https://promptcut.dpdns.org/", img: "/img/promptcut.webp", w: 1000, h: 620, cap: "Say it, watch it move. Turn a script into a finished explainer video with voice, drawings and captions.", tags: ["AI video", "Voice and captions", "Web, Windows, Android"] },
   { name: "Home of Calculators", href: "https://homeofcalculators.com/", img: "/img/home-of-calculators.webp", w: 1000, h: 501, cap: "500+ calculators, an AI photo solver and a builder to make your own.", tags: ["Next.js 15", "AI solver", "Cloudflare Pages"] },
   { name: "Toolhive", href: "https://toolhive.me", img: "/img/toolhive.webp", w: 1000, h: 495, cap: "44+ creative and developer tools that never upload your files.", tags: ["React", "WebAssembly", "Client-side"] },
   { name: "ChatGrain", href: "https://chatgrain.com", img: "/img/chatgrain.webp", w: 1000, h: 529, cap: "A support agent built from your own website that says \"I don't know\" when it should.", tags: ["AI agents", "Retrieval", "Citations"] },
@@ -61,6 +62,5 @@ export const navLinks = [
 // Shown in the "In the works" section (markup lives in app/page.tsx). Kept here
 // so the chatbot's knowledge stays in step with the page. Update both together.
 export const inTheWorks = [
-  { name: "PromptCut AI Studio", status: "in private testing", text: "Give it an idea and it writes, voices and edits a video. Runs on web, Windows and Android." },
   { name: "AsaanTax PK", status: "in development", text: "Tax filing for Pakistani taxpayers (FBR), AI-assisted, built with a chartered accountant. Stack: Next.js and Drizzle." },
 ];

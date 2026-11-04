@@ -3,17 +3,18 @@
 import { useEffect, useRef, useState } from "react";
 import { projects } from "@/lib/data";
 
-/* A tiny Breakout: the six project tags are the bricks. Each takes 3 hits.
+/* A tiny Breakout: the seven project tags are the bricks. Each takes 3 hits.
    Hit 1 cracks it, hit 2 tears it in two, hit 3 shatters it. */
 
 type Style = "or" | "white" | "ink";
 const BRICKS: { name: string; style: Style }[] = [
   { name: "PTA Game", style: "or" },
   { name: "Narrashot", style: "white" },
+  { name: "PromptCut", style: "or" },
   { name: "Toolhive", style: "ink" },
   { name: "Home of Calculators", style: "white" },
-  { name: "ChatGrain", style: "or" },
-  { name: "FileViewerHub", style: "ink" },
+  { name: "ChatGrain", style: "ink" },
+  { name: "FileViewerHub", style: "or" },
 ];
 const PAL: Record<Style, { fill: string; text: string; stroke: string | null; crack: string }> = {
   or: { fill: "#e8461e", text: "#ffffff", stroke: null, crack: "rgba(255,255,255,.85)" },
@@ -170,7 +171,8 @@ export default function Breakout() {
       const m = W < 320 ? 16 : 24, gap = 8, bw = (W - 2 * m - gap) / 2;
       bricks.forEach((b, i) => {
         b.w = bw;
-        b.x = m + (i % 2) * (bw + gap);
+        const lone = i === bricks.length - 1 && i % 2 === 0; // odd one out sits centred
+        b.x = lone ? (W - bw) / 2 : m + (i % 2) * (bw + gap);
         b.y = 10 + Math.floor(i / 2) * (b.h + gap);
       });
       pad.y = H - 32;
@@ -374,7 +376,7 @@ export default function Breakout() {
         {over && (
           <div className="over">
             <h4>{phase === "won" ? "Wall cleared!" : "Game over"}</h4>
-            <p>{phase === "won" ? "You broke all six. Now see them for real:" : `${broken} of 6 bricks down. Try again, or visit them:`}</p>
+            <p>{phase === "won" ? "You broke all seven. Now see them for real:" : `${broken} of 7 bricks down. Try again, or visit them:`}</p>
             <div className="links">
               {projects.map((p) => (
                 <a key={p.name} href={p.href} target="_blank" rel="noopener">{p.name} ↗</a>

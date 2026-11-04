@@ -132,12 +132,8 @@ export default function Home() {
 
         <section className="sec dark" aria-labelledby="next-h">
           <div className="wrap">
-            <SectionHead id="next-h" title="In the works" note="Two products I'm building now. Not public yet." icon={<><path d="M12 6v6l4 2" /><circle cx="12" cy="12" r="9" /></>} />
+            <SectionHead id="next-h" title="In the works" note="What I'm building next. Not public yet." icon={<><path d="M12 6v6l4 2" /><circle cx="12" cy="12" r="9" /></>} />
             <div className="works">
-              <div className="wk rv">
-                <div className="im"><Image src="/img/promptcut.webp" alt="PromptCut AI Studio home screen" width={1000} height={620} loading="lazy" /></div>
-                <div className="tx"><b>PromptCut AI Studio</b>Give it an idea and it writes, voices and edits a video. Web, Windows and Android. <em>In private testing.</em></div>
-              </div>
               <div className="wk rv">
                 <div className="im">
                   <div className="tax">

@@ -49,8 +49,10 @@ export default function WorkList() {
         ))}
       </div>
       <div className="preview rv" aria-hidden="true">
-        <Image src={p.img} alt="" width={p.w} height={p.h} style={{ opacity: fade ? 0 : 1 }} />
-        <div className="cap">
+        <div className="pv">
+          <Image src={p.img} alt="" width={p.w} height={p.h} style={{ opacity: fade ? 0 : 1 }} />
+        </div>
+        <div className="pcap">
           <b>{p.name}</b>
           <span>{p.cap}</span>
         </div>

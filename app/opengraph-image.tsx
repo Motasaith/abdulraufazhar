@@ -28,7 +28,7 @@ export default function OpengraphImage() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: 30, color: "#e8461e", fontWeight: 700 }}>I&apos;m</div>
           <div style={{ fontSize: 124, fontWeight: 800, letterSpacing: -4, lineHeight: 1 }}>Abdul Rauf Azhar</div>
-          <div style={{ fontSize: 40, marginTop: 20, color: "#67635b" }}>Full-stack &amp; AI developer. Six live products.</div>
+          <div style={{ fontSize: 40, marginTop: 20, color: "#67635b" }}>Full-stack &amp; AI developer. Seven live products.</div>
         </div>
         <div style={{ height: 8, width: 220, background: "#e8461e", borderRadius: 4 }} />
       </div>

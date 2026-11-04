@@ -120,6 +120,7 @@ let nextId = 1;
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
   const [showLabel, setShowLabel] = useState(false);
+  const [onDark, setOnDark] = useState(false);
   const [msgs, setMsgs] = useState<Msg[]>([]);
   const [input, setInput] = useState("");
   const [busy, setBusy] = useState(false);
@@ -152,6 +153,25 @@ export default function Chatbot() {
     if (busy) return;
     try { sessionStorage.setItem(STORE, JSON.stringify(msgs.slice(-60))); } catch { /* storage full or blocked */ }
   }, [msgs, busy]);
+
+  // flip the ring to light text while it floats over a dark section
+  useEffect(() => {
+    const check = () => {
+      const y = window.innerHeight - 59; // vertical centre of the launcher
+      const dark = Array.from(document.querySelectorAll(".dark")).some((el) => {
+        const r = el.getBoundingClientRect();
+        return r.top <= y && r.bottom >= y;
+      });
+      setOnDark(dark); // no-op when unchanged
+    };
+    check();
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check);
+    return () => {
+      window.removeEventListener("scroll", check);
+      window.removeEventListener("resize", check);
+    };
+  }, []);
 
   const dismissLabel = useCallback(() => {
     setShowLabel(false);
@@ -379,13 +399,17 @@ export default function Chatbot() {
 
       <div className={`cb-launch${open ? " is-open" : ""}`}>
         {showLabel && !open && (
-          <div className="cb-label" role="status">
-            <button type="button" onClick={() => { setOpen(true); }} className="cb-label-t">
-              <i aria-hidden="true" />
-              <span><b>Ask about Abdul&apos;s work</b><small>AI assistant, replies instantly</small></span>
-            </button>
-            <button type="button" className="cb-x" onClick={dismissLabel} aria-label="Hide this prompt">{I.close}</button>
-          </div>
+          // Decorative: the button's own aria-label already says what it does.
+          <svg className={`cb-ring${onDark ? " on-dark" : ""}`} viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+            <defs>
+              <path id="cb-circ" d="M13,60 a47,47 0 1,1 94,0 a47,47 0 1,1 -94,0" />
+            </defs>
+            <text>
+              <textPath href="#cb-circ" textLength="291" lengthAdjust="spacing">
+                ASK ABOUT ABDUL&apos;S WORK <tspan className="dot">&#9679;</tspan> AI ASSISTANT <tspan className="dot">&#9679;</tspan>{" "}
+              </textPath>
+            </text>
+          </svg>
         )}
         <button
           ref={launchRef}

@@ -154,7 +154,7 @@ export default function Stats() {
   const r1 = useRef<HTMLDivElement>(null);
   const r2 = useRef<HTMLDivElement>(null);
   const r3 = useRef<HTMLDivElement>(null);
-  const n6 = useCountUp(6, r1);
+  const n6 = useCountUp(7, r1);
   const n44 = useCountUp(44, r2);
   const n500 = useCountUp(500, r3);
 

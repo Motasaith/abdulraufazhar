@@ -8,7 +8,7 @@ export const SITE = {
   name: "Abdul Rauf Azhar",
   title: "Abdul Rauf Azhar | Full-Stack & AI Developer",
   description:
-    "Full-stack and AI developer in Rahim Yar Khan, Pakistan. Six live products: browser games, AI video tools, calculators, support agents and more. Available for freelance projects.",
+    "Full-stack and AI developer in Rahim Yar Khan, Pakistan. Seven live products: browser games, AI video tools, calculators, support agents and more. Available for freelance projects.",
   email: PROFILE.email,
   github: PROFILE.github,
   linkedin: PROFILE.linkedin,

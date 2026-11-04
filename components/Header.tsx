@@ -59,8 +59,7 @@ export default function Header() {
             ))}
           </nav>
           <div className="nav-r">
-            <span className="avail">Available for projects</span>
-            <a className="btn" href={`mailto:${SITE.email}`}>
+            <a className="btn live" href={`mailto:${SITE.email}`} title="Available for projects">
               <MailIcon />
               Email me
             </a>
