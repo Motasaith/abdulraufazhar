@@ -20,8 +20,9 @@ export const projects: Project[] = [
 
 export const slides = [
   { title: "Browser game / PTA Game", href: "https://ptagames.dpdns.org/", cta: "Play it", img: "/img/pta-game.webp", alt: "PTA Game title screen", w: 1000, h: 471, note: "The whole city is generated in your browser when it loads. No art files, no server." },
-  { title: "AI video / Narrashot", href: "https://narrashot.dpdns.org/", cta: "Make a video", img: "/img/narrashot.webp", alt: "Narrashot upload screen", w: 1000, h: 532, note: "Drop in up to 50 screenshots. It writes the narration, zooms in and renders an MP4." },
+  { title: "AI video / PromptCut", href: "https://promptcut.dpdns.org/", cta: "Try it", img: "/img/promptcut.webp", alt: "PromptCut home page", w: 1000, h: 620, note: "Paste a script and it becomes an explainer video with voice, drawings and captions." },
   { title: "Calculators / Home of Calculators", href: "https://homeofcalculators.com/", cta: "Open it", img: "/img/home-of-calculators.webp", alt: "Home of Calculators home page", w: 1000, h: 501, note: "500+ calculators, plus an AI solver that reads a maths problem from a photo." },
+  { title: "Client store / M A Store", href: "https://m-a-store.pages.dev/", cta: "Visit the store", img: "/img/ma-store.webp", alt: "M A Store (Mobizo) mobile accessories shop", w: 1000, h: 491, note: "A mobile accessories store built for a client, with cash on delivery across Pakistan. Still in development." },
 ];
 
 export const capabilities = [

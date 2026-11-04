@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState, type PointerEvent as RPointerEvent, type RefObject } from "react";
+import { useEffect, useRef, useState, type RefObject } from "react";
 import Breakout from "@/components/Breakout";
+import Pinball from "@/components/Pinball";
 
 const reduced = () => typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion:reduce)").matches;
 
@@ -87,76 +88,13 @@ function Chat() {
   );
 }
 
-/* ---------- Card 3: draggable gauge ---------- */
-
-const MAX = 500, CX = 125, CY = 130, R = 105, NEEDLE = 88;
-
-function Gauge({ auto }: { auto: number }) {
-  const svg = useRef<SVGSVGElement>(null);
-  const [g, setG] = useState<number | null>(null);
-  const dragging = useRef(false);
-  const val = g ?? auto;
-
-  const fromPointer = (e: RPointerEvent) => {
-    const r = svg.current!.getBoundingClientRect();
-    const k = 250 / r.width;
-    const dx = (e.clientX - r.left) * k - CX;
-    const dy = Math.max(0, CY - (e.clientY - r.top) * k);
-    setG(Math.round(MAX * (1 - Math.atan2(dy, dx) / Math.PI)));
-  };
-  const th = Math.PI * (1 - val / MAX);
-  const tx = CX + R * Math.cos(th), ty = CY - R * Math.sin(th);
-  const nx = CX + NEEDLE * Math.cos(th), ny = CY - NEEDLE * Math.sin(th);
-
-  return (
-    <>
-      <div className="gread">
-        <div><b>{Math.round(val)}</b> / 500+</div>
-        <small>{g === null ? "Drag the needle" : "calculators, and counting"}</small>
-      </div>
-      <svg
-        ref={svg}
-        className="gauge"
-        viewBox="0 0 250 140"
-        role="slider"
-        tabIndex={0}
-        aria-label="Number of calculators"
-        aria-valuemin={0}
-        aria-valuemax={MAX}
-        aria-valuenow={Math.round(val)}
-        onPointerDown={(e) => { dragging.current = true; e.currentTarget.classList.add("mouse"); e.currentTarget.setPointerCapture(e.pointerId); fromPointer(e); }}
-        onBlur={(e) => e.currentTarget.classList.remove("mouse")}
-        onPointerMove={(e) => dragging.current && fromPointer(e)}
-        onPointerUp={() => { dragging.current = false; }}
-        onPointerCancel={() => { dragging.current = false; }}
-        onKeyDown={(e) => {
-          e.currentTarget.classList.remove("mouse");
-          const step = e.shiftKey ? 50 : 10;
-          const k: Record<string, number> = { ArrowRight: val + step, ArrowUp: val + step, ArrowLeft: val - step, ArrowDown: val - step, Home: 0, End: MAX };
-          if (e.key in k) { e.preventDefault(); setG(Math.max(0, Math.min(MAX, k[e.key]))); }
-        }}
-      >
-        <path d="M20 130a105 105 0 0 1 210 0" fill="none" style={{ stroke: "var(--line2)" }} strokeWidth="16" strokeLinecap="round" />
-        <path d={`M20 130A105 105 0 0 1 ${tx.toFixed(2)} ${ty.toFixed(2)}`} fill="none" stroke="#e8461e" strokeWidth="16" strokeLinecap="round" />
-        <g style={{ stroke: "var(--mute)" }} strokeWidth="1.5"><path d="M40 130h-8M125 46v-8M210 130h8M65 70l-6-6M185 70l6-6" /></g>
-        <line x1={CX} y1={CY} x2={nx} y2={ny} style={{ stroke: "var(--ink)" }} strokeWidth="3" strokeLinecap="round" />
-        <circle cx={CX} cy={CY} r="7" style={{ fill: "var(--ink)" }} />
-        <circle cx={nx} cy={ny} r="11" fill="transparent" />
-        <text x="22" y="118">0</text><text x="113" y="62">250</text><text x="200" y="118">500</text>
-      </svg>
-    </>
-  );
-}
-
 /* ---------- Section ---------- */
 
 export default function Stats() {
   const r1 = useRef<HTMLDivElement>(null);
   const r2 = useRef<HTMLDivElement>(null);
-  const r3 = useRef<HTMLDivElement>(null);
   const n6 = useCountUp(7, r1);
   const n44 = useCountUp(44, r2);
-  const n500 = useCountUp(500, r3);
 
   return (
     <div className="stats">
@@ -170,10 +108,8 @@ export default function Stats() {
         <span>Browser tools in Toolhive</span>
         <Chat />
       </div>
-      <div className="st rv" ref={r3}>
-        <b>{n500}+</b>
-        <span>Calculators on Home of Calculators</span>
-        <Gauge auto={n500} />
+      <div className="st dk rv">
+        <Pinball />
       </div>
     </div>
   );

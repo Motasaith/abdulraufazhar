@@ -44,7 +44,7 @@ function facts(): string {
 
 LIVE PRODUCTS (seven, all live and free to try)
 ${live}
-- Numbers shown on the site: 7 live products, 44+ browser tools in Toolhive (they run inside the browser, files never leave the visitor's device), 500+ calculators on Home of Calculators.
+- Numbers shown on the site: 7 live products, 44+ browser tools in Toolhive (they run inside the browser, files never leave the visitor's device).
 
 IN THE WORKS
 ${works}

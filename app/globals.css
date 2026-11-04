@@ -91,7 +91,7 @@ img{display:block;max-width:100%;height:auto}
 .slide .screen{width:min(84%,820px);background:var(--dark);border-radius:16px 16px 0 0;padding:14px 14px 0;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
 .slide .screen i{display:flex;gap:6px;margin:0 0 12px 4px}
 .slide .screen i::before,.slide .screen i::after,.slide .screen i b{content:"";width:9px;height:9px;border-radius:50%;background:#3a3833}
-.slide img{border-radius:8px 8px 0 0;width:100%}
+.slide img{border-radius:8px 8px 0 0;width:100%;aspect-ratio:1000/490;object-fit:cover;object-position:top}
 .slide .note{position:absolute;left:0;bottom:46px;max-width:260px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:13.5px;line-height:1.5;box-shadow:0 18px 36px -22px rgba(0,0,0,.35);transform:rotate(-3deg)}
 .slide .note b{display:block;color:var(--or);font-weight:600;margin-bottom:4px}
 
@@ -415,3 +415,8 @@ footer{padding:70px 0 0;overflow:hidden}
 :root[data-theme="dark"] .mark{box-shadow:0 0 0 1px var(--line)}
 :root[data-theme="dark"] .cap:hover{box-shadow:0 22px 40px -26px rgba(0,0,0,.8)}
 :root[data-theme="dark"] .st.dk{border-color:var(--dline)}
+
+/* space pinball card */
+.game.pin canvas{cursor:pointer}
+.st.dk .over{background:rgba(20,19,17,.9);color:#fff}
+.st.dk .over p{color:var(--dmute)}
