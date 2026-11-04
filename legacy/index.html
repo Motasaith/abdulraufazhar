@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abdul Rauf Azhar | Full-Stack & AI Developer</title>
+<meta name="description" content="Full-stack and AI developer in Rahim Yar Khan, Pakistan. Six live products: browser games, AI video tools, calculators, support agents and more.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Abdul Rauf Azhar | Full-Stack & AI Developer">
+<meta property="og:description" content="Full-stack and AI developer in Rahim Yar Khan, Pakistan. Six live products.">
+<!-- After deploying, add absolute URLs:
+<meta property="og:image" content="https://YOUR-DOMAIN/img/og.jpg">
+<meta property="og:url" content="https://YOUR-DOMAIN/"> -->
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e8461e'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Impact,Arial Narrow,sans-serif' font-size='32' fill='white'%3EAR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{
+  --page:#f3f1ec;--card:#ffffff;--ink:#161512;--mute:#67635b;--line:#dedad1;--line2:#e9e6df;
+  --or:#e8461e;--or-soft:#fde4db;--dark:#141311;--dark2:#1d1c19;--dline:#2e2c28;--dmute:#a39e93;--ok:#1f9d4c;
+  --display:"Bricolage Grotesque","Inter",system-ui,sans-serif;
+  --text:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  color-scheme:light;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{margin:0;background:var(--page);color:var(--ink);font:400 16px/1.65 var(--text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%;height:auto}
+:focus-visible{outline:2px solid var(--or);outline-offset:3px}
+.H{font-family:var(--display);font-weight:800;letter-spacing:-.035em;line-height:1;margin:0;text-wrap:balance}
+.wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+.or{color:var(--or)}
+
+/* ruled band: thin lines above and below, like a printed form */
+.rule{border-block:1px solid var(--line)}
+.dark .rule{border-color:var(--dline)}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:30;padding:12px 0;pointer-events:none}
+.nav .wrap{pointer-events:none}
+.bar{pointer-events:auto;position:relative;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;height:64px;padding:0 10px 0 12px;background:rgba(255,255,255,.82);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px);border:1px solid var(--line);border-radius:18px;transition:box-shadow .25s,background .25s}
+.nav.stuck .bar{background:rgba(255,255,255,.92);box-shadow:0 14px 34px -20px rgba(22,21,18,.35)}
+.brand{justify-self:start;display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
+.mark{flex:none;width:42px;height:42px;border-radius:12px;background:var(--ink);color:#fff;display:grid;place-items:center;font:800 17px var(--display);letter-spacing:-.02em;transition:background .2s,transform .3s}
+.brand:hover .mark{background:var(--or);transform:rotate(-6deg)}
+.who{display:flex;flex-direction:column;line-height:1.2;min-width:0}
+.who b{font:700 16px var(--display);letter-spacing:-.02em;white-space:nowrap}
+.who span{font-size:12.5px;color:var(--mute);white-space:nowrap}
+.menu{display:flex;align-items:center;gap:2px;padding:4px;border-radius:99px;background:var(--page);border:1px solid var(--line2);font-size:14px;font-weight:500}
+.menu a{text-decoration:none;padding:7px 16px;border-radius:99px;color:var(--mute);transition:background .2s,color .2s}
+.menu a:hover{color:var(--ink);background:rgba(22,21,18,.06)}
+.menu a.cur{background:var(--ink);color:#fff}
+.nav-r{justify-self:end;display:flex;align-items:center;gap:14px}
+.avail{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:500;color:var(--ok);white-space:nowrap}
+.avail::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px color-mix(in srgb,var(--ok) 22%,transparent)}
+.burger{display:none;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);background:var(--card);cursor:pointer;padding:0;place-items:center;color:var(--ink)}
+.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:2px;border-radius:2px;background:currentColor;transition:transform .25s,background .2s}
+.burger span{position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0}
+.burger span::before{top:-6px}
+.burger span::after{top:6px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg)}
+.sheet{display:none}
+.btn{display:inline-flex;align-items:center;gap:9px;height:42px;padding:0 18px;border-radius:12px;background:var(--or);color:#fff;text-decoration:none;font:600 14px var(--text);border:0;cursor:pointer;transition:background .2s,transform .2s}
+.btn:hover{background:#cf3a15;transform:translateY(-1px)}
+.btn svg{width:16px;height:16px}
+.btn.dk{background:var(--ink)}
+.btn.dk:hover{background:#000}
+.btn.ln{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.btn.ln:hover{box-shadow:inset 0 0 0 1px var(--ink)}
+
+/* hero */
+.hero{padding:56px 0 0}
+.hero-top{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:28px;padding:22px 0}
+.face{width:124px;height:124px;border-radius:24px;overflow:hidden;background:var(--dark);box-shadow:0 0 0 1px var(--line);transform:rotate(-4deg)}
+.face img{width:100%;height:100%;object-fit:cover}
+.hello small{display:block;font:700 24px/1 var(--display);color:var(--or);letter-spacing:-.02em;margin-bottom:8px}
+.hello h1{font-size:clamp(48px,7vw,92px);letter-spacing:-.045em}
+.hero-top p{max-width:30ch;font-size:17px;line-height:1.55;margin:0;justify-self:end;color:var(--mute)}
+
+/* featured carousel */
+.feat{margin:30px 0 0;border:1px solid var(--line);border-radius:22px;overflow:hidden;background-color:#f7f5ef;background-image:linear-gradient(var(--line2) 1px,transparent 1px),linear-gradient(90deg,var(--line2) 1px,transparent 1px);background-size:28px 28px;position:relative}
+.feat-h{display:flex;justify-content:space-between;align-items:flex-start;padding:34px 40px 0;gap:20px}
+.feat-h h2{font-size:28px}
+.feat-h a{font-size:14.5px;font-weight:500;color:var(--or);text-decoration:none;display:inline-flex;gap:6px;align-items:center;margin-top:8px}
+.feat-h a:hover{text-decoration:underline}
+.ctr{text-align:right;font:500 13px var(--mono);color:var(--or)}
+.dots{display:flex;gap:6px;margin-top:8px;justify-content:flex-end}
+.dots button{width:30px;height:12px;border:0;background:none;padding:5px 0;cursor:pointer}
+.dots button::before{content:"";display:block;height:2px;background:var(--ink);opacity:.25;transition:opacity .2s,background .2s}
+.dots button[aria-current="true"]::before{background:var(--or);opacity:1}
+.stage{position:relative;margin:20px 40px 0;height:min(40vw,440px)}
+.slide{position:absolute;inset:0;display:flex;justify-content:center;align-items:flex-end;opacity:0;visibility:hidden;transition:opacity .6s,visibility .6s}
+.slide.on{opacity:1;visibility:visible}
+.slide .screen{width:min(84%,820px);background:var(--dark);border-radius:16px 16px 0 0;padding:14px 14px 0;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+.slide .screen i{display:flex;gap:6px;margin:0 0 12px 4px}
+.slide .screen i::before,.slide .screen i::after,.slide .screen i b{content:"";width:9px;height:9px;border-radius:50%;background:#3a3833}
+.slide img{border-radius:8px 8px 0 0;width:100%}
+.slide .note{position:absolute;left:0;bottom:46px;max-width:260px;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-size:13.5px;line-height:1.5;box-shadow:0 18px 36px -22px rgba(0,0,0,.35);transform:rotate(-3deg)}
+.slide .note b{display:block;color:var(--or);font-weight:600;margin-bottom:4px}
+
+/* section header: icon chip + title, note on the right, between rules */
+.sec{padding:110px 0}
+.sh{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:24px;padding:18px 0;margin-bottom:46px}
+.sh-t{display:flex;align-items:center;gap:12px;justify-self:end;padding-right:20px}
+.sh-t span{width:30px;height:30px;border-radius:8px;background:var(--or);color:#fff;display:grid;place-items:center}
+.sh-t span svg{width:16px;height:16px}
+.sh h2{font-size:clamp(30px,3.4vw,44px)}
+.sh p{margin:0;max-width:36ch;font-size:15px;line-height:1.55;color:var(--mute)}
+.dark .sh p{color:var(--dmute)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.st{border-radius:18px;border:1px solid var(--line);background:var(--card);min-height:340px;padding:24px;position:relative;overflow:hidden}
+.st b{display:block;font:800 68px/1 var(--display);letter-spacing:-.05em}
+.st > span{color:var(--or);font-size:14.5px;font-weight:500}
+.pills{position:absolute;inset:auto 0 0 0;height:190px}
+.pills span{position:absolute;padding:8px 15px;border-radius:99px;font:500 12.5px var(--mono);white-space:nowrap;border:1px solid var(--ink);background:var(--card)}
+.pills .a{background:var(--or);border-color:var(--or);color:#fff}
+.pills .k{background:var(--ink);color:#fff}
+.st.dk{background:var(--dark);border-color:var(--dark);color:#fff}
+.st.dk > span{color:#ff7a52}
+.chat{position:absolute;left:24px;right:24px;bottom:24px;display:grid;gap:10px;font-size:13.5px;line-height:1.5}
+.chat .q,.chat .a{border-radius:14px;padding:11px 14px;max-width:88%}
+.chat .q{background:#2b2a26;justify-self:start;display:flex;gap:10px;align-items:center}
+.chat .q i{width:22px;height:22px;border-radius:50%;background:#4a4842;flex:none;display:grid;place-items:center;font-style:normal;font-size:11px}
+.chat .a{background:#26251f;border:1px solid #3a3833;justify-self:end;color:#e9e5dc}
+.chat .a small{display:block;color:#ff7a52;font:500 11px var(--mono);margin-bottom:3px}
+.gauge{position:absolute;left:50%;bottom:-6px;width:250px;transform:translateX(-50%)}
+.gauge text{font:500 11px var(--mono);fill:var(--mute)}
+
+/* dark band */
+.dark{background:var(--dark);color:#f1eee8}
+.wgrid{display:grid;grid-template-columns:1fr 1.05fr;gap:48px;align-items:start}
+.cases{border-top:1px solid var(--dline)}
+.case{display:grid;grid-template-columns:1fr;gap:8px;padding:24px 4px;border-bottom:1px solid var(--dline);text-decoration:none;position:relative}
+.case h3{font-size:clamp(26px,3vw,38px);transition:color .25s,transform .3s}
+.case ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:0 16px;font:400 12.5px var(--mono);color:#ff7a52}
+.case ul li::before{content:"// "}
+.case:hover h3,.case:focus-visible h3,.case.on h3{color:var(--or);transform:translateX(8px)}
+.case .arr{position:absolute;right:-34px;top:50%;transform:translateY(-50%);opacity:0;transition:opacity .25s}
+.preview{position:sticky;top:96px;border-radius:20px;overflow:hidden;background:var(--dark2);aspect-ratio:16/10.5;border:1px solid var(--dline)}
+.preview img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:opacity .35s}
+.preview .cap{position:absolute;left:18px;right:18px;bottom:18px;background:rgba(20,19,17,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);border:1px solid var(--dline);border-radius:12px;padding:14px 16px;font-size:14px;line-height:1.55;color:#e9e5dc}
+.preview .cap b{display:block;font:800 20px var(--display);letter-spacing:-.02em;color:#fff;margin-bottom:4px}
+
+/* capabilities */
+.caps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.cap{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:10px 10px 18px;transition:transform .3s,box-shadow .3s}
+.cap:hover{transform:translateY(-5px);box-shadow:0 22px 40px -26px rgba(0,0,0,.35)}
+.cap .im{border-radius:10px;overflow:hidden;background:var(--dark);aspect-ratio:4/3}
+.cap .im img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.cap h3{font:700 17px/1.3 var(--display);letter-spacing:-.02em;text-align:center;margin:16px 0 6px}
+.cap p{margin:0 10px;font-size:14px;color:var(--mute);text-align:center;line-height:1.5}
+
+/* in the works */
+.works{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.wk .im{border-radius:16px;overflow:hidden;aspect-ratio:16/11;background:var(--dark2);border:1px solid var(--dline)}
+.wk .im img{width:100%;height:100%;object-fit:cover;object-position:top left}
+.wk .tx{margin-top:18px;font-size:14.5px;line-height:1.6;color:#e9e5dc}
+.wk .tx b{display:block;color:#fff;font:700 18px var(--display);letter-spacing:-.02em;margin-bottom:4px}
+.wk .tx em{font-style:normal;color:#ff7a52}
+.tax{height:100%;display:flex;flex-direction:column;justify-content:space-between;padding:30px;background:var(--or);color:#fff;font-size:14px}
+.tax .H{font-size:clamp(40px,5vw,66px);line-height:.95}
+.tax ol{margin:0;padding:0;list-style:none;display:grid;gap:8px}
+.tax li{display:flex;justify-content:space-between;border-top:1px solid rgba(255,255,255,.35);padding-top:8px}
+
+/* experience */
+.exp{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.job{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column}
+.job .yr{font:500 12.5px var(--mono);color:var(--or)}
+.job h3{font:800 24px/1.1 var(--display);letter-spacing:-.03em;margin:14px 0 6px}
+.job .at{font-size:14px;color:var(--mute);margin-bottom:16px}
+.job ul{margin:0;padding-left:18px;font-size:14.5px;line-height:1.6}
+.job li+li{margin-top:6px}
+.stack{margin-top:16px;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px 24px;display:grid;grid-template-columns:150px 1fr;gap:12px 24px;font-size:14.5px}
+.stack dt{color:var(--or);font:500 13px var(--mono);padding-top:2px}
+.stack dd{margin:0}
+
+/* faq */
+.faq{max-width:760px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:8px 26px}
+.faq details+details{border-top:1px solid var(--line2)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:20px 0;font-size:16px;font-weight:600}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"Expand +";color:var(--or);font:500 12.5px var(--mono);white-space:nowrap}
+.faq details[open] summary::after{content:"Collapse \2212"}
+.faq details p{margin:-6px 0 20px;font-size:15px;color:var(--mute);max-width:62ch}
+
+/* cta */
+.cta{border:1px solid var(--line);border-radius:22px;background-color:#f7f5ef;background-image:linear-gradient(var(--line2) 1px,transparent 1px),linear-gradient(90deg,var(--line2) 1px,transparent 1px);background-size:28px 28px;padding:80px 32px;text-align:center;position:relative;overflow:hidden}
+.cta h2{font-size:clamp(38px,5.4vw,68px);max-width:14ch;margin:0 auto 26px}
+.cta p{margin:0 auto 28px;max-width:44ch;color:var(--mute);font-size:17px}
+.cta .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.cta .side{position:absolute;bottom:-14px;width:230px;border-radius:12px;box-shadow:0 24px 40px -24px rgba(0,0,0,.4);border:5px solid var(--card)}
+.cta .s1{left:-40px;transform:rotate(8deg)}
+.cta .s2{right:-40px;transform:rotate(-8deg)}
+
+/* footer */
+footer{padding:70px 0 0;overflow:hidden}
+.fcols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;font-size:14.5px}
+.fcols h4{margin:0 0 12px;font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase}
+.fcols a{display:block;text-decoration:none;color:var(--mute);padding:3px 0}
+.fcols a:hover{color:var(--or)}
+.fbar{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);margin-top:50px;padding:20px 0;font-size:13.5px;color:var(--mute)}
+.giant{font:800 clamp(60px,15vw,210px)/.85 var(--display);letter-spacing:-.05em;text-align:center;white-space:nowrap;color:transparent;background:linear-gradient(180deg,color-mix(in srgb,var(--or) 45%,transparent),transparent 92%);-webkit-background-clip:text;background-clip:text;margin-top:10px;user-select:none}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s cubic-bezier(.2,.8,.2,1)}
+.js .rv.seen{opacity:1;transform:none}
+
+@media (max-width:1180px){.nav-r>.avail{display:none}}
+@media (max-width:1000px){
+  .bar{grid-template-columns:1fr auto}
+  .menu{display:none}
+  .burger{display:grid}
+  .sheet{position:absolute;left:-1px;right:-1px;top:calc(100% + 8px);padding:10px;background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 24px 44px -24px rgba(22,21,18,.4)}
+  .sheet.open{display:grid;gap:2px}
+  .sheet a{text-decoration:none;padding:13px 14px;border-radius:12px;font-weight:500}
+  .sheet a:hover,.sheet a.cur{background:var(--page)}
+  .sheet a.cur{color:var(--or)}
+  .sheet .avail{padding:12px 14px 6px}
+  .caps{grid-template-columns:1fr 1fr}
+  .exp{grid-template-columns:1fr}
+}
+@media (max-width:820px){
+  .wrap{padding:0 20px}
+  .hero-top{grid-template-columns:auto 1fr;gap:18px}
+  .hero-top p{grid-column:1/-1;justify-self:start;max-width:40ch}
+  .face{width:92px;height:92px;border-radius:18px}
+  .feat-h{padding:24px 22px 0}
+  .stage{margin:22px 16px 0;height:62vw}
+  .slide .screen{width:100%}
+  .slide .note{display:none}
+  .sec{padding:76px 0}
+  .sh{grid-template-columns:1fr;gap:10px;margin-bottom:32px}
+  .sh-t{justify-self:start;padding:0}
+  .stats{grid-template-columns:1fr}
+  .wgrid{grid-template-columns:1fr;gap:0}
+  .case{padding:20px 0}
+  .preview{display:none}
+  .works{grid-template-columns:1fr}
+  .wk .tax{aspect-ratio:16/11}
+  .stack{grid-template-columns:1fr;gap:4px}
+  .stack dd{margin-bottom:10px}
+  .cta{padding:56px 20px 150px}
+  .cta .side{width:170px}
+  .fcols{grid-template-columns:1fr 1fr}
+}
+@media (max-width:520px){
+  .who span{display:none}
+  .nav-r>.btn{display:none}
+  .nav{padding:8px 0}
+  .caps{grid-template-columns:1fr}
+  .faq{padding:4px 18px}
+  .faq summary{flex-direction:column;gap:4px}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{transition:none!important;animation:none!important}
+  .js .rv{opacity:1;transform:none}
+}
+</style>
+<script>document.documentElement.classList.add("js")</script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <div class="bar">
+      <a class="brand" href="#top" aria-label="Abdul Rauf Azhar, back to top">
+        <span class="mark">AR</span>
+        <span class="who"><b>Abdul Rauf Azhar</b><span>Full-Stack &amp; AI Developer</span></span>
+      </a>
+      <nav class="menu" aria-label="Sections">
+        <a class="cur" href="#top">Home</a><a href="#work">Work</a><a href="#capabilities">Capabilities</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+      </nav>
+      <div class="nav-r">
+        <span class="avail">Available for projects</span>
+        <a class="btn" href="mailto:abdulraufazhardev@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6.5 8.5-6.5"/></svg>Email me</a>
+        <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="sheet" aria-label="Open menu"><span></span></button>
+      </div>
+      <nav class="sheet" id="sheet" aria-label="Sections (mobile)">
+        <a href="#top">Home</a><a href="#work">Work</a><a href="#capabilities">Capabilities</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+        <span class="avail">Available for projects</span>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top rule">
+      <div class="face"><img src="img/portrait.webp" alt="Abdul Rauf Azhar" width="400" height="400"></div>
+      <div class="hello"><small>I'm</small><h1 class="H">Abdul Rauf</h1></div>
+      <p>A full-stack &amp; AI developer from Rahim Yar Khan, Pakistan. I make things people can open in a browser and use.</p>
+    </div>
+
+    <div class="feat" id="feat" aria-roledescription="carousel" aria-label="Featured projects">
+      <div class="feat-h">
+        <div>
+          <h2 class="H" id="f-title">Browser game / PTA Game</h2>
+          <a id="f-link" href="https://ptagames.dpdns.org/" target="_blank" rel="noopener">Play it <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+        </div>
+        <div class="ctr"><span id="f-num">// 01</span><div class="dots" role="tablist" aria-label="Choose project">
+          <button type="button" role="tab" aria-current="true" aria-label="PTA Game"></button>
+          <button type="button" role="tab" aria-current="false" aria-label="Narrashot"></button>
+          <button type="button" role="tab" aria-current="false" aria-label="Home of Calculators"></button>
+        </div></div>
+      </div>
+      <div class="stage">
+        <div class="slide on" data-title="Browser game / PTA Game" data-link="https://ptagames.dpdns.org/" data-cta="Play it">
+          <div class="screen"><i><b></b></i><img src="img/pta-game.webp" alt="PTA Game title screen" width="1000" height="471"></div>
+          <div class="note"><b>How it works</b>The whole city is generated in your browser when it loads. No art files, no server.</div>
+        </div>
+        <div class="slide" data-title="AI video / Narrashot" data-link="https://narrashot.dpdns.org/" data-cta="Make a video">
+          <div class="screen"><i><b></b></i><img src="img/narrashot.webp" alt="Narrashot upload screen" width="1000" height="532" loading="lazy"></div>
+          <div class="note"><b>How it works</b>Drop in up to 50 screenshots. It writes the narration, zooms in and renders an MP4.</div>
+        </div>
+        <div class="slide" data-title="Calculators / Home of Calculators" data-link="https://homeofcalculators.com/" data-cta="Open it">
+          <div class="screen"><i><b></b></i><img src="img/home-of-calculators.webp" alt="Home of Calculators home page" width="1000" height="501" loading="lazy"></div>
+          <div class="note"><b>How it works</b>500+ calculators, plus an AI solver that reads a maths problem from a photo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="stats-h">
+  <div class="wrap">
+    <div class="sh rule rv">
+      <div class="sh-t"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M5 20V11M12 20V4M19 20v-6"/></svg></span><h2 class="H" id="stats-h">Stats</h2></div>
+      <p>A few numbers from the things I've built and still look after.</p>
+    </div>
+    <div class="stats">
+      <div class="st rv">
+        <b>6</b><span>Live products</span>
+        <div class="pills" aria-label="PTA Game, Narrashot, Home of Calculators, Toolhive, ChatGrain, FileViewerHub">
+          <span class="a" style="left:6%;bottom:96px;transform:rotate(-14deg)">PTA Game</span>
+          <span style="left:44%;bottom:118px;transform:rotate(9deg)">Narrashot</span>
+          <span class="k" style="left:2%;bottom:46px;transform:rotate(6deg)">Toolhive</span>
+          <span style="left:36%;bottom:58px;transform:rotate(-8deg)">Home of Calculators</span>
+          <span class="a" style="left:12%;bottom:6px;transform:rotate(-4deg)">ChatGrain</span>
+          <span class="k" style="left:50%;bottom:10px;transform:rotate(12deg)">FileViewerHub</span>
+        </div>
+      </div>
+      <div class="st dk rv">
+        <b>44+</b><span>Browser tools in Toolhive</span>
+        <div class="chat">
+          <div class="q"><i>?</i>Does it upload my photo to compress it?</div>
+          <div class="a"><small>Toolhive</small>No. All 44+ tools run inside your browser. Your files never leave your device.</div>
+        </div>
+      </div>
+      <div class="st rv">
+        <b>500+</b><span>Calculators on Home of Calculators</span>
+        <svg class="gauge" viewBox="0 0 250 140" aria-hidden="true">
+          <path d="M20 130a105 105 0 0 1 210 0" fill="none" stroke="#e9e6df" stroke-width="16" stroke-linecap="round"/>
+          <path d="M20 130a105 105 0 0 1 196 -52" fill="none" stroke="#e8461e" stroke-width="16" stroke-linecap="round"/>
+          <g stroke="#67635b" stroke-width="1.5"><path d="M40 130h-8M125 46v-8M210 130h8M65 70l-6-6M185 70l6-6"/></g>
+          <path d="M125 130 200 78" stroke="#161512" stroke-width="3" stroke-linecap="round"/><circle cx="125" cy="130" r="7" fill="#161512"/>
+          <text x="22" y="118">0</text><text x="113" y="62">250</text><text x="200" y="118">500</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark" id="work" aria-labelledby="work-h">
+  <div class="wrap">
+    <div class="sh rule rv">
+      <div class="sh-t"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><rect x="3" y="6" width="18" height="14" rx="2"/><path d="M8 6V4h8v2"/></svg></span><h2 class="H" id="work-h">Work</h2></div>
+      <p>Everything here is live and free to try.</p>
+    </div>
+    <div class="wgrid"><div class="cases rv" id="cases">
+      <a class="case on" href="https://ptagames.dpdns.org/" target="_blank" rel="noopener" data-img="img/pta-game.webp" data-name="PTA Game" data-cap="A GTA-style open world set in a Pakistani city, generated in your browser.">
+        <h3 class="H">PTA Game</h3><ul><li>three.js</li><li>Procedural city</li><li>Cloudflare</li></ul></a>
+      <a class="case" href="https://narrashot.dpdns.org/" target="_blank" rel="noopener" data-img="img/narrashot.webp" data-name="Narrashot" data-cap="Screenshots in, narrated tutorial video out. No screen recorder, no retakes.">
+        <h3 class="H">Narrashot</h3><ul><li>Next.js</li><li>FastAPI</li><li>FFmpeg</li></ul></a>
+      <a class="case" href="https://homeofcalculators.com/" target="_blank" rel="noopener" data-img="img/home-of-calculators.webp" data-name="Home of Calculators" data-cap="500+ calculators, an AI photo solver and a builder to make your own.">
+        <h3 class="H">Home of Calculators</h3><ul><li>Next.js 15</li><li>AI solver</li><li>Cloudflare Pages</li></ul></a>
+      <a class="case" href="https://toolhive.me" target="_blank" rel="noopener" data-img="img/toolhive.webp" data-name="Toolhive" data-cap="44+ creative and developer tools that never upload your files.">
+        <h3 class="H">Toolhive</h3><ul><li>React</li><li>WebAssembly</li><li>Client-side</li></ul></a>
+      <a class="case" href="https://chatgrain.com" target="_blank" rel="noopener" data-img="img/chatgrain.webp" data-name="ChatGrain" data-cap="A support agent built from your own website that says &quot;I don't know&quot; when it should.">
+        <h3 class="H">ChatGrain</h3><ul><li>AI agents</li><li>Retrieval</li><li>Citations</li></ul></a>
+      <a class="case" href="https://fileviewerhub.com" target="_blank" rel="noopener" data-img="img/fileviewerhub.webp" data-name="FileViewerHub" data-cap="Open email, database, map, 3D and document files in the browser. I maintain it.">
+        <h3 class="H">FileViewerHub</h3><ul><li>GitHub Actions</li><li>PM2</li><li>Nginx</li></ul></a>
+    </div>
+    <div class="preview rv" aria-hidden="true">
+      <img id="pv-img" src="img/pta-game.webp" alt="" width="1000" height="471">
+      <div class="cap"><b id="pv-name">PTA Game</b><span id="pv-cap">A GTA-style open world set in a Pakistani city, generated in your browser.</span></div>
+    </div></div>
+  </div>
+</section>
+
+<section class="sec" id="capabilities" aria-labelledby="cap-h">
+  <div class="wrap">
+    <div class="sh rule rv">
+      <div class="sh-t"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="m8 7-5 5 5 5M16 7l5 5-5 5"/></svg></span><h2 class="H" id="cap-h">Capabilities</h2></div>
+      <p>What I can build for you, from the database up to the deployed link.</p>
+    </div>
+    <div class="caps">
+      <div class="cap rv"><div class="im"><img src="img/home-of-calculators.webp" alt="" loading="lazy" width="1000" height="501"></div><h3>Web apps</h3><p>Next.js, FastAPI, Postgres, logins and payments.</p></div>
+      <div class="cap rv"><div class="im"><img src="img/chatgrain.webp" alt="" loading="lazy" width="1000" height="529"></div><h3>AI agents &amp; MCP</h3><p>Agents on your data and MCP servers for your APIs.</p></div>
+      <div class="cap rv"><div class="im"><img src="img/narrashot.webp" alt="" loading="lazy" width="1000" height="532"></div><h3>Video pipelines</h3><p>FFmpeg rendering, AI narration, timeline editing.</p></div>
+      <div class="cap rv"><div class="im"><img src="img/pta-game.webp" alt="" loading="lazy" width="1000" height="471"></div><h3>3D &amp; games</h3><p>three.js, WebGL shaders and landing pages.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec dark" aria-labelledby="next-h">
+  <div class="wrap">
+    <div class="sh rule rv">
+      <div class="sh-t"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 6v6l4 2"/><circle cx="12" cy="12" r="9"/></svg></span><h2 class="H" id="next-h">In the works</h2></div>
+      <p>Two products I'm building now. Not public yet.</p>
+    </div>
+    <div class="works">
+      <div class="wk rv">
+        <div class="im"><img src="img/promptcut.webp" alt="PromptCut AI Studio home screen" width="1000" height="620" loading="lazy"></div>
+        <div class="tx"><b>PromptCut AI Studio</b>Give it an idea and it writes, voices and edits a video. Web, Windows and Android. <em>In private testing.</em></div>
+      </div>
+      <div class="wk rv">
+        <div class="im"><div class="tax"><div class="H">AsaanTax<br>PK</div><ol><li><span>FBR tax filing</span><span>AI-assisted</span></li><li><span>Built with</span><span>a chartered accountant</span></li><li><span>Stack</span><span>Next.js &middot; Drizzle</span></li></ol></div></div>
+        <div class="tx"><b>AsaanTax PK</b>Tax filing for Pakistani taxpayers, without the paperwork headache. <em>In development.</em></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="experience" aria-labelledby="exp-h">
+  <div class="wrap">
+    <div class="sh rule rv">
+      <div class="sh-t"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 7h16v12H4zM9 7V5h6v2"/></svg></span><h2 class="H" id="exp-h">Experience</h2></div>
+      <p>Where I've worked and what I'm studying.</p>
+    </div>
+    <div class="exp">
+      <div class="job rv"><span class="yr">Sept 2026 &rarr; now</span><h3>Full-Stack Developer, AI &amp; Automation</h3><span class="at">Wise Technologies &middot; joined after interning</span><ul><li>Built and deployed an MCP server for the company's image-upscaling API.</li><li>Designed the company website redesign, including a custom GLSL shader hero.</li></ul></div>
+      <div class="job rv"><span class="yr">2025 &rarr; now</span><h3>Freelance Full-Stack Developer</h3><span class="at">Remote</span><ul><li>Delivered a UK e-commerce store with Next.js, Clerk and Stripe.</li><li>Built a landing page for a Lahore real estate client.</li></ul></div>
+      <div class="job rv"><span class="yr">Expected 2027</span><h3>BS Data Science &amp; AI</h3><span class="at">KFUEIT</span><ul><li>Built a cardiovascular-risk ML model at Hack4Health.</li></ul></div>
+    </div>
+    <dl class="stack rv">
+      <dt>Front end</dt><dd>Next.js, React, TypeScript, three.js, GSAP, WebGL / GLSL</dd>
+      <dt>Back end &amp; data</dt><dd>Python, FastAPI, Node.js, PostgreSQL, Supabase, Drizzle</dd>
+      <dt>AI &amp; media</dt><dd>MCP, LLM APIs, Ollama, FFmpeg</dd>
+      <dt>Ship &amp; run</dt><dd>Cloudflare, Vercel, Docker, Nginx, GitHub Actions</dd>
+    </dl>
+    <!-- Testimonials: when you have real quotes, add a section here (name, role, company). -->
+  </div>
+</section>
+
+<section class="sec" aria-labelledby="faq-h" style="padding-top:0">
+  <div class="wrap">
+    <div class="sh rule rv">
+      <div class="sh-t"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17.5v.01"/><circle cx="12" cy="12" r="9"/></svg></span><h2 class="H" id="faq-h">FAQ</h2></div>
+      <p>Answers to what people usually ask before they email.</p>
+    </div>
+    <div class="faq rv">
+      <details open><summary>Are you taking freelance work?</summary><p>Yes, a few projects at a time. I work full time at Wise Technologies, so I keep my freelance list short and give each one proper attention.</p></details>
+      <details><summary>What do you usually build with?</summary><p>Next.js and React on the front end, FastAPI or Node on the back end, Postgres or Supabase for data, and LLM APIs or MCP for the AI layer.</p></details>
+      <details><summary>Do you work with clients outside Pakistan?</summary><p>Yes. I've delivered an e-commerce store for a UK client. I'm on UTC+5 and share working builds as I go.</p></details>
+      <details><summary>Will you look after it after launch?</summary><p>Yes. Deployment, monitoring and fixes are part of the job. I still maintain FileViewerHub, for example.</p></details>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="ct-h" id="contact">
+  <div class="wrap">
+    <div class="cta rv">
+      <img class="side s1" src="img/toolhive.webp" alt="" width="1000" height="495" loading="lazy">
+      <img class="side s2" src="img/fileviewerhub.webp" alt="" width="1000" height="499" loading="lazy">
+      <h2 class="H" id="ct-h">Got something to build?</h2>
+      <p>Tell me what it is and where you're stuck. A short email is enough to start.</p>
+      <div class="row">
+        <a class="btn" href="mailto:abdulraufazhardev@gmail.com">abdulraufazhardev@gmail.com</a>
+        <a class="btn ln" href="https://www.linkedin.com/in/abdul-rauf-azhar-5750a3378/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="fcols">
+      <div><h4>Pages</h4><a href="#top">Home</a><a href="#work">Work</a><a href="#capabilities">Capabilities</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+      <div><h4>Projects</h4><a href="https://ptagames.dpdns.org/" target="_blank" rel="noopener">PTA Game</a><a href="https://narrashot.dpdns.org/" target="_blank" rel="noopener">Narrashot</a><a href="https://homeofcalculators.com/" target="_blank" rel="noopener">Home of Calculators</a><a href="https://toolhive.me" target="_blank" rel="noopener">Toolhive</a><a href="https://chatgrain.com" target="_blank" rel="noopener">ChatGrain</a><a href="https://fileviewerhub.com" target="_blank" rel="noopener">FileViewerHub</a></div>
+      <div><h4>Elsewhere</h4><a href="https://github.com/Motasaith" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/abdul-rauf-azhar-5750a3378/" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:abdulraufazhardev@gmail.com">Email</a></div>
+    </div>
+    <div class="fbar"><span>&copy; 2026 Abdul Rauf Azhar</span><span>Rahim Yar Khan, Pakistan &middot; UTC+5</span><a href="#top" style="text-decoration:none">Back to top &uarr;</a></div>
+  </div>
+  <div class="giant" aria-hidden="true">Abdul Rauf</div>
+</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  // featured carousel
+  var slides=[].slice.call(document.querySelectorAll(".slide")),dots=[].slice.call(document.querySelectorAll(".dots button")),
+      t=document.getElementById("f-title"),l=document.getElementById("f-link"),n=document.getElementById("f-num"),i=0,timer;
+  function show(k){
+    i=(k+slides.length)%slides.length;
+    slides.forEach(function(s,j){s.classList.toggle("on",j===i)});
+    dots.forEach(function(d,j){d.setAttribute("aria-current",j===i?"true":"false")});
+    var s=slides[i];t.textContent=s.dataset.title;l.href=s.dataset.link;l.firstChild.nodeValue=s.dataset.cta+" ";n.textContent="// 0"+(i+1);
+  }
+  function play(){if(reduce)return;clearInterval(timer);timer=setInterval(function(){show(i+1)},6000)}
+  dots.forEach(function(d,j){d.addEventListener("click",function(){show(j);play()})});
+  var f=document.getElementById("feat");f.addEventListener("mouseenter",function(){clearInterval(timer)});f.addEventListener("mouseleave",play);
+  play();
+  // work list preview
+  var cases=[].slice.call(document.querySelectorAll(".case")),pi=document.getElementById("pv-img"),pn=document.getElementById("pv-name"),pc=document.getElementById("pv-cap");
+  function pick(c){cases.forEach(function(x){x.classList.toggle("on",x===c)});pi.style.opacity=0;setTimeout(function(){pi.src=c.dataset.img;pn.textContent=c.dataset.name;pc.textContent=c.dataset.cap;pi.style.opacity=1},reduce?0:180)}
+  cases.forEach(function(c){c.addEventListener("mouseenter",function(){if(!c.classList.contains("on"))pick(c)});c.addEventListener("focus",function(){pick(c)})});
+  // header: stuck shadow, mobile sheet, scroll spy
+  var nav=document.getElementById("nav"),bg=document.getElementById("burger"),sh=document.getElementById("sheet");
+  var links=[].slice.call(document.querySelectorAll(".menu a,.sheet a"));
+  function setOpen(o){sh.classList.toggle("open",o);bg.setAttribute("aria-expanded",o);bg.setAttribute("aria-label",o?"Close menu":"Open menu")}
+  bg.addEventListener("click",function(){setOpen(!sh.classList.contains("open"))});
+  sh.addEventListener("click",function(e){if(e.target.tagName==="A")setOpen(false)});
+  document.addEventListener("keydown",function(e){if(e.key==="Escape")setOpen(false)});
+  var targets=links.slice(0,5).map(function(a){return document.getElementById(a.getAttribute("href").slice(1))});
+  function spy(){
+    nav.classList.toggle("stuck",scrollY>8);
+    var k=0,y=scrollY+140;
+    targets.forEach(function(t,j){if(t&&t.getBoundingClientRect().top+scrollY<=y)k=j});
+    if(innerHeight+scrollY>=document.documentElement.scrollHeight-4)k=targets.length-1;
+    links.forEach(function(a,j){a.classList.toggle("cur",j%5===k)});
+  }
+  addEventListener("scroll",spy,{passive:true});addEventListener("resize",spy);spy();
+  // reveal on scroll
+  var els=document.querySelectorAll(".rv");
+  if(reduce||!("IntersectionObserver" in window)){els.forEach(function(e){e.classList.add("seen")});return}
+  var o=new IntersectionObserver(function(en){en.forEach(function(x){if(x.isIntersecting){x.target.classList.add("seen");o.unobserve(x.target)}})},{threshold:.12});
+  els.forEach(function(e){o.observe(e)});
+})();
+</script>
+</body>
+</html>
