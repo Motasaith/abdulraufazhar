@@ -120,11 +120,11 @@ export default function Home() {
             <SectionHead id="cap-h" title="Capabilities" note="What I can build for you, from the database up to the deployed link." icon={<path d="m8 7-5 5 5 5M16 7l5 5-5 5" />} />
             <div className="caps">
               {capabilities.map((c) => (
-                <div className="cap rv" key={c.title}>
+                <a className="cap rv" key={c.title} href={c.href} target="_blank" rel="noopener">
                   <div className="im"><Image src={c.img} alt="" width={c.w} height={c.h} loading="lazy" /></div>
                   <h3>{c.title}</h3>
                   <p>{c.text}</p>
-                </div>
+                </a>
               ))}
             </div>
           </div>
@@ -132,8 +132,12 @@ export default function Home() {
 
         <section className="sec dark" aria-labelledby="next-h">
           <div className="wrap">
-            <SectionHead id="next-h" title="In the works" note="What I'm building next. Not public yet." icon={<><path d="M12 6v6l4 2" /><circle cx="12" cy="12" r="9" /></>} />
+            <SectionHead id="next-h" title="In the works" note="Two projects I'm building now: one for a client, one of my own." icon={<><path d="M12 6v6l4 2" /><circle cx="12" cy="12" r="9" /></>} />
             <div className="works">
+              <a className="wk rv" href="https://m-a-store.pages.dev/" target="_blank" rel="noopener">
+                <div className="im"><Image src="/img/ma-store.webp" alt="M A Store (Mobizo) home page, a mobile accessories shop" width={1000} height={491} loading="lazy" /></div>
+                <div className="tx"><b>M A Store (Mobizo)</b>A mobile accessories store for a client, with cash on delivery across Pakistan. <em>In development.</em></div>
+              </a>
               <div className="wk rv">
                 <div className="im">
                   <div className="tax">

@@ -25,10 +25,11 @@ export const slides = [
 ];
 
 export const capabilities = [
-  { title: "Web apps", text: "Next.js, FastAPI, Postgres, logins and payments.", img: "/img/home-of-calculators.webp", w: 1000, h: 501 },
-  { title: "AI agents & MCP", text: "Agents on your data and MCP servers for your APIs.", img: "/img/chatgrain.webp", w: 1000, h: 529 },
-  { title: "Video pipelines", text: "FFmpeg rendering, AI narration, timeline editing.", img: "/img/narrashot.webp", w: 1000, h: 532 },
-  { title: "3D & games", text: "three.js, WebGL shaders and landing pages.", img: "/img/pta-game.webp", w: 1000, h: 471 },
+  { title: "Web apps", text: "Next.js, FastAPI, Postgres, logins and payments.", href: "https://homeofcalculators.com/", img: "/img/home-of-calculators.webp", w: 1000, h: 501 },
+  { title: "AI agents & MCP", text: "Agents on your data and MCP servers for your APIs.", href: "https://chatgrain.com", img: "/img/chatgrain.webp", w: 1000, h: 529 },
+  { title: "Video pipelines", text: "FFmpeg rendering, AI narration, timeline editing.", href: "https://narrashot.dpdns.org/", img: "/img/narrashot.webp", w: 1000, h: 532 },
+  { title: "AI studios", text: "Prompt-to-video tools with voice, drawings and captions.", href: "https://promptcut.dpdns.org/", img: "/img/promptcut.webp", w: 1000, h: 620 },
+  { title: "3D & games", text: "three.js, WebGL shaders and landing pages.", href: "https://ptagames.dpdns.org/", img: "/img/pta-game.webp", w: 1000, h: 471 },
 ];
 
 export const jobs = [
@@ -62,5 +63,6 @@ export const navLinks = [
 // Shown in the "In the works" section (markup lives in app/page.tsx). Kept here
 // so the chatbot's knowledge stays in step with the page. Update both together.
 export const inTheWorks = [
+  { name: "M A Store (Mobizo)", status: "in development for a client", href: "https://m-a-store.pages.dev/", text: "A mobile accessories store for a client: cases, chargers, tempered glass and parts, with cash on delivery across Pakistan." },
   { name: "AsaanTax PK", status: "in development", text: "Tax filing for Pakistani taxpayers (FBR), AI-assisted, built with a chartered accountant. Stack: Next.js and Drizzle." },
 ];
