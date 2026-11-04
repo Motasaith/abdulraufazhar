@@ -37,14 +37,17 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
-  themeColor: "#f3f1ec",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f3f1ec" },
+    { media: "(prefers-color-scheme: dark)", color: "#0e0d0c" },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${display.variable} ${text.variable} ${mono.variable}`} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: 'document.documentElement.classList.add("js")' }} />
+        <script dangerouslySetInnerHTML={{ __html: 'document.documentElement.classList.add("js");try{var t=localStorage.getItem("ar-theme");if(!t)t=matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.dataset.theme=t}catch(e){}' }} />
       </head>
       <body>
         {children}

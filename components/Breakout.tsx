@@ -16,11 +16,23 @@ const BRICKS: { name: string; style: Style }[] = [
   { name: "ChatGrain", style: "ink" },
   { name: "FileViewerHub", style: "or" },
 ];
+const TH = { ink: "#161512", mute: "#67635b", card: "#ffffff", onInk: "#ffffff" };
 const PAL: Record<Style, { fill: string; text: string; stroke: string | null; crack: string }> = {
   or: { fill: "#e8461e", text: "#ffffff", stroke: null, crack: "rgba(255,255,255,.85)" },
   white: { fill: "#ffffff", text: "#161512", stroke: "#161512", crack: "rgba(22,21,18,.7)" },
   ink: { fill: "#161512", text: "#ffffff", stroke: null, crack: "rgba(255,255,255,.75)" },
 };
+/* Pull the page theme into the canvas colours (the canvas cannot use CSS variables). */
+function readTheme() {
+  const s = getComputedStyle(document.documentElement);
+  const g = (n: string, d: string) => s.getPropertyValue(n).trim() || d;
+  TH.ink = g("--ink", "#161512");
+  TH.mute = g("--mute", "#67635b");
+  TH.card = g("--card", "#ffffff");
+  TH.onInk = g("--on-ink", "#ffffff");
+  PAL.white = { fill: TH.card, text: TH.ink, stroke: TH.ink, crack: TH.ink };
+  PAL.ink = { fill: TH.ink, text: TH.onInk, stroke: null, crack: TH.onInk };
+}
 
 type Pt = { x: number; y: number };
 type Brick = { name: string; style: Style; x: number; y: number; w: number; h: number; hp: number; hit: number; cracks: Pt[][]; zig: number[] };
@@ -284,18 +296,18 @@ export default function Breakout() {
         ctx.restore();
       });
       // paddle + ball
-      rr(ctx, pad.x, pad.y, pad.w, PAD_H, 4); ctx.fillStyle = "#161512"; ctx.fill();
+      rr(ctx, pad.x, pad.y, pad.w, PAD_H, 4); ctx.fillStyle = TH.ink; ctx.fill();
       ctx.beginPath(); ctx.arc(ball.x, ball.y, BALL_R, 0, Math.PI * 2);
-      ctx.fillStyle = "#e8461e"; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = "#161512"; ctx.stroke();
+      ctx.fillStyle = "#e8461e"; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = TH.ink; ctx.stroke();
       // hud
-      ctx.font = small; ctx.textBaseline = "middle"; ctx.fillStyle = "#67635b";
+      ctx.font = small; ctx.textBaseline = "middle"; ctx.fillStyle = TH.mute;
       ctx.textAlign = "right"; ctx.fillText(`${alive()}/${BRICKS.length} bricks`, W - 24, H - 10);
       for (let i = 0; i < 3; i++) {
         ctx.beginPath(); ctx.arc(28 + i * 13, H - 10, 3.5, 0, Math.PI * 2);
-        if (i < lives) { ctx.fillStyle = "#161512"; ctx.fill(); } else { ctx.strokeStyle = "#a39e93"; ctx.lineWidth = 1; ctx.stroke(); }
+        if (i < lives) { ctx.fillStyle = TH.ink; ctx.fill(); } else { ctx.strokeStyle = TH.mute; ctx.lineWidth = 1; ctx.stroke(); }
       }
       if (ball.stuck && (ph === "ready" || ph === "play")) {
-        ctx.fillStyle = "#67635b"; ctx.textAlign = "center";
+        ctx.fillStyle = TH.mute; ctx.textAlign = "center";
         ctx.fillText(ph === "ready" ? "Move, then click to launch" : "Click to launch", W / 2, pad.y - 26);
       }
     }
@@ -342,6 +354,9 @@ export default function Breakout() {
     const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) start(); }, { threshold: 0.05 });
     io.observe(c);
     document.fonts?.ready.then(() => { dirty = true; });
+    readTheme();
+    const mo = new MutationObserver(() => { readTheme(); dirty = true; });
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 
     pad.x = 0;
     size();
@@ -352,7 +367,7 @@ export default function Breakout() {
     return () => {
       cancelAnimationFrame(raf);
       running = false;
-      ro.disconnect(); io.disconnect();
+      ro.disconnect(); io.disconnect(); mo.disconnect();
       c.removeEventListener("pointermove", onMove);
       c.removeEventListener("pointerdown", onDown);
       c.removeEventListener("keydown", kd);

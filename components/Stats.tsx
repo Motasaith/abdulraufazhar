@@ -136,11 +136,11 @@ function Gauge({ auto }: { auto: number }) {
           if (e.key in k) { e.preventDefault(); setG(Math.max(0, Math.min(MAX, k[e.key]))); }
         }}
       >
-        <path d="M20 130a105 105 0 0 1 210 0" fill="none" stroke="#e9e6df" strokeWidth="16" strokeLinecap="round" />
+        <path d="M20 130a105 105 0 0 1 210 0" fill="none" style={{ stroke: "var(--line2)" }} strokeWidth="16" strokeLinecap="round" />
         <path d={`M20 130A105 105 0 0 1 ${tx.toFixed(2)} ${ty.toFixed(2)}`} fill="none" stroke="#e8461e" strokeWidth="16" strokeLinecap="round" />
-        <g stroke="#67635b" strokeWidth="1.5"><path d="M40 130h-8M125 46v-8M210 130h8M65 70l-6-6M185 70l6-6" /></g>
-        <line x1={CX} y1={CY} x2={nx} y2={ny} stroke="#161512" strokeWidth="3" strokeLinecap="round" />
-        <circle cx={CX} cy={CY} r="7" fill="#161512" />
+        <g style={{ stroke: "var(--mute)" }} strokeWidth="1.5"><path d="M40 130h-8M125 46v-8M210 130h8M65 70l-6-6M185 70l6-6" /></g>
+        <line x1={CX} y1={CY} x2={nx} y2={ny} style={{ stroke: "var(--ink)" }} strokeWidth="3" strokeLinecap="round" />
+        <circle cx={CX} cy={CY} r="7" style={{ fill: "var(--ink)" }} />
         <circle cx={nx} cy={ny} r="11" fill="transparent" />
         <text x="22" y="118">0</text><text x="113" y="62">250</text><text x="200" y="118">500</text>
       </svg>
